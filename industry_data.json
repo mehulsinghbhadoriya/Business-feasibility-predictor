@@ -1,0 +1,67 @@
+[
+  {
+    "id": "saas",
+    "name": "SaaS / Mobile App Startup",
+    "keywords": "software app saas platform website tech digital online coding cloud game developer mobile applications web service tech startup",
+    "base_startup_capital": 15000,
+    "base_monthly_rent": 0,
+    "base_monthly_labor": 4000,
+    "base_monthly_ops": 800,
+    "base_monthly_revenue": 6000,
+    "revenue_volatility": 0.35,
+    "cost_volatility": 0.10,
+    "survival_rate_3yr": 25.0
+  },
+  {
+    "id": "bakery_cafe",
+    "name": "Bakery / Cafe / Food Business",
+    "keywords": "bakery cafe coffee bread sourdough cake food restaurant cafe shop dining bistro cookie pastry sweet tea dessert kitchen cafeteria",
+    "base_startup_capital": 80000,
+    "base_monthly_rent": 3500,
+    "base_monthly_labor": 5000,
+    "base_monthly_ops": 3000,
+    "base_monthly_revenue": 14000,
+    "revenue_volatility": 0.15,
+    "cost_volatility": 0.12,
+    "survival_rate_3yr": 45.0
+  },
+  {
+    "id": "boutique_retail",
+    "name": "Boutique Retail / Fashion Store",
+    "keywords": "retail clothing boutique fashion shop store apparel accessories shoes gift jewelry market merchant selling designer shirts clothes",
+    "base_startup_capital": 50000,
+    "base_monthly_rent": 4000,
+    "base_monthly_labor": 3000,
+    "base_monthly_ops": 4000,
+    "base_monthly_revenue": 13000,
+    "revenue_volatility": 0.25,
+    "cost_volatility": 0.15,
+    "survival_rate_3yr": 38.0
+  },
+  {
+    "id": "local_services",
+    "name": "Local Services (Salon / Pet Grooming / Spa)",
+    "keywords": "pet grooming salon hair spa local service cleaning repair plumber electrician nails beauty barber massage fitness gym training",
+    "base_startup_capital": 25000,
+    "base_monthly_rent": 2000,
+    "base_monthly_labor": 3500,
+    "base_monthly_ops": 1000,
+    "base_monthly_revenue": 8500,
+    "revenue_volatility": 0.12,
+    "cost_volatility": 0.08,
+    "survival_rate_3yr": 52.0
+  },
+  {
+    "id": "e_learning",
+    "name": "E-Learning / Online Courses Platform",
+    "keywords": "tutoring courses education learning teach academy school online tutoring class coaching instructor lesson student training study",
+    "base_startup_capital": 8000,
+    "base_monthly_rent": 0,
+    "base_monthly_labor": 2500,
+    "base_monthly_ops": 300,
+    "base_monthly_revenue": 4500,
+    "revenue_volatility": 0.20,
+    "cost_volatility": 0.05,
+    "survival_rate_3yr": 30.0
+  }
+]
