@@ -4,6 +4,8 @@ import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 # Paths
@@ -25,6 +27,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Load Macroeconomic Database
 if not os.path.exists(MACRO_DATA_PATH):
@@ -69,7 +73,7 @@ class PredictionRequest(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"status": "healthy", "service": "ScalePredict AI API Backend", "version": "1.0.0"}
+    return FileResponse(os.path.join(BASE_DIR, "static", "index.html"))
 
 @app.get("/api/countries")
 def get_countries():

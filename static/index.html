@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScalePredict AI - Business Feasibility Engine</title>
+  <!-- Load Inter font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+  
+  <div class="app-layout">
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div className="sidebar-brand">
+        <div class="brand-logo">📊</div>
+        <div>
+          <h2>ScalePredict AI</h2>
+          <span class="brand-sub">Feasibility Engine</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">✨</span>
+          New Analysis
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📁</span>
+          Dashboard
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📜</span>
+          History
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">⚙️</span>
+          Settings
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="upgrade-card">
+          <h4>Pro Plan</h4>
+          <p>Unlimited analyses, advanced metrics & priority support.</p>
+          <button class="btn btn-upgrade">Upgrade Plan</button>
+        </div>
+        
+        <div class="user-profile">
+          <div class="avatar">M</div>
+          <div class="user-info">
+            <span class="name">Mehul</span>
+            <span class="role">Pro Plan</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN CENTER WORKSPACE -->
+    <main class="main-workspace">
+      <!-- Top Search Bar -->
+      <div class="top-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search industries, metrics, reports..." disabled>
+          <span class="keyboard-hint">⌘K</span>
+        </div>
+        
+        <div class="top-actions">
+          <span class="badge-premium">👑 Premium</span>
+          <span class="action-icon">🔔</span>
+          <span class="action-icon">🌙</span>
+        </div>
+      </div>
+
+      <!-- Hero Introduction Banner -->
+      <div class="hero-section">
+        <span class="hero-badge">AI-POWERED BUSINESS INTELLIGENCE</span>
+        <h1>Predict. Plan. <span class="gradient-text">Prosper.</span></h1>
+        <p>AI-powered feasibility analysis to validate your business idea against 5,000+ real-world startup outcomes.</p>
+      </div>
+
+      <!-- Quick Stats Row -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <h3>5,000+</h3>
+          <p>Historical Startups</p>
+        </div>
+        <div class="stat-box">
+          <h3>10+</h3>
+          <p>Global Locations</p>
+        </div>
+        <div class="stat-box">
+          <h3>95%+</h3>
+          <p>Prediction Accuracy</p>
+        </div>
+      </div>
+
+      <!-- Configurator Card -->
+      <div class="config-card">
+        <div class="card-header">
+          <h3>Configure Your Analysis</h3>
+          <p>Select your business parameters to get started</p>
+        </div>
+
+        <form id="feasibility-form">
+          <div class="form-grid">
+            <!-- Col 1 -->
+            <div class="form-col">
+              <div class="form-group">
+                <label>Industry Category</label>
+                <select id="industry" required>
+                  <option value="SaaS / Mobile Apps">SaaS / Mobile Apps</option>
+                  <option value="Bakery / Cafe / Food">Bakery / Cafe / Food</option>
+                  <option value="Boutique Retail / E-commerce">Boutique Retail / E-commerce</option>
+                  <option value="Local Services (Salon, Gym, Repairs)">Local Services (Salon, Gym, Repairs)</option>
+                  <option value="E-Learning / Online Academy">E-Learning / Online Academy</option>
+                  <option value="Agrotech / Vertical Farming">Agrotech / Vertical Farming</option>
+                  <option value="Real Estate / Property Management">Real Estate / Property Management</option>
+                  <option value="Healthcare Clinic / Wellness Care">Healthcare Clinic / Wellness Care</option>
+                  <option value="Logistics / Delivery Service">Logistics / Delivery Service</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Business Model</label>
+                <select id="businessModel" required>
+                  <option value="B2C">B2C (Business-to-Consumer)</option>
+                  <option value="B2B">B2B (Business-to-Business)</option>
+                  <option value="Marketplace">Marketplace / Hybrid</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Sales Channel</label>
+                <select id="salesChannel" required>
+                  <option value="Online">Online / Digital Platform</option>
+                  <option value="Physical">Physical Storefront / Office</option>
+                  <option value="Omnichannel">Omnichannel / Hybrid</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Founder Experience</label>
+                <select id="founderExperience" required>
+                  <option value="Novice">Novice (First business)</option>
+                  <option value="Intermediate" selected>Intermediate (Prior industry background)</option>
+                  <option value="Experienced">Experienced (Serial entrepreneur)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Target Market (Location)</label>
+                <select id="targetCountry" required>
+                  <option value="">Loading locations...</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="form-col">
+              <div class="form-group">
+                <label id="lbl-capital">Starting Capital (INR)</label>
+                <input type="number" id="startingCapital" min="10" required>
+              </div>
+
+              <div class="form-group">
+                <label id="lbl-marketing">Monthly Marketing Budget (INR)</label>
+                <input type="number" id="marketingBudget" min="0" required>
+              </div>
+
+              <div class="form-group">
+                <label>Expected Team Size (Employees)</label>
+                <input type="number" id="teamSize" min="1" max="100" value="3" required>
+              </div>
+
+              <div class="form-group">
+                <label id="lbl-tx">Average Transaction / Sale Value (INR)</label>
+                <input type="number" id="avgTxValue" min="0.1" step="any" required>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-submit">Run AI Feasibility Check 🚀</button>
+        </form>
+      </div>
+
+      <!-- Features Footer -->
+      <div class="features-footer">
+        <div class="feature-footer-card">
+          <span class="icon">🌍</span>
+          <h4>Macro Engine</h4>
+          <p>Real-time economic data scaled dynamically via World Bank PPP factors.</p>
+        </div>
+        <div class="feature-footer-card">
+          <span class="icon">📊</span>
+          <h4>Stochastic Modeling</h4>
+          <p>Random Forest regression to model capital reserves and burn rates.</p>
+        </div>
+        <div class="feature-footer-card">
+          <span class="icon">🛡️</span>
+          <h4>Risk Assessment</h4>
+          <p>Multi-dimensional analysis to flag operating deficits.</p>
+        </div>
+        <div class="feature-footer-card">
+          <span class="icon">📈</span>
+          <h4>Financial Projections</h4>
+          <p>Data-driven forecasts for survival and expected ROI.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- 3. RIGHT PREVIEW SIDEBAR -->
+    <aside class="preview-sidebar">
+      <div class="sidebar-header">
+        <h3>AI Prediction Preview</h3>
+        <span class="status-badge"><span class="dot"></span> Real-time Analysis</span>
+      </div>
+
+      <!-- Preview State Placeholder -->
+      <div id="preview-placeholder" class="placeholder-state">
+        <div class="placeholder-icon">🤖</div>
+        <h4>Awaiting Configuration</h4>
+        <p>Modify the parameters in the configurator and run the feasibility check to generate prediction metrics.</p>
+      </div>
+
+      <!-- Loading State Spinner -->
+      <div id="preview-loading" class="loading-state hidden">
+        <div class="spinner"></div>
+        <p>Evaluating venture vectors against Random Forest models...</p>
+      </div>
+
+      <!-- Output Results Dashboard -->
+      <div id="preview-results" class="results-dashboard hidden">
+        
+        <!-- Survival Probability Gauge -->
+        <div class="gauge-card">
+          <span class="section-label">Success Probability</span>
+          <div class="gauge-wrapper">
+            <svg class="gauge-svg" viewBox="0 0 100 100">
+              <circle class="gauge-track" cx="50" cy="50" r="40" />
+              <circle id="gauge-fill" class="gauge-fill" cx="50" cy="50" r="40" />
+            </svg>
+            <div class="gauge-text">
+              <span id="txt-survival" class="percentage">72%</span>
+              <span id="txt-potential" class="status">High Potential</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profit Outlay Card -->
+        <div id="profit-card" class="profit-metric-card">
+          <span class="section-label">Expected Net Income (Annual)</span>
+          <h2 id="txt-profit">+INR 45,000.00</h2>
+          <span id="txt-currency-tag" class="currency-tag">Currency: INR</span>
+        </div>
+
+        <!-- Cost Breakdown List -->
+        <div class="breakdown-container">
+          <span class="section-label">Cost Breakdown (Annual)</span>
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <span>Rent Outlay</span>
+              <span id="txt-rent">INR 0.00</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Labor Outlay</span>
+              <span id="txt-labor">INR 0.00</span>
+            </div>
+            <div class="breakdown-item">
+              <span>Marketing Outlay</span>
+              <span id="txt-marketing">INR 0.00</span>
+            </div>
+            <div class="breakdown-divider"></div>
+            <div class="breakdown-item total">
+              <span>Total Operating Cost</span>
+              <span id="txt-total-cost">INR 0.00</span>
+            </div>
+          </div>
+
+          <!-- Cost allocation progress bar -->
+          <div class="stacked-bar-wrapper">
+            <div class="stacked-bar">
+              <div id="bar-rent" class="bar-slice rent" style="width: 33%"></div>
+              <div id="bar-labor" class="bar-slice labor" style="width: 33%"></div>
+              <div id="bar-marketing" class="bar-slice marketing" style="width: 34%"></div>
+            </div>
+            <div class="legend">
+              <span><span class="dot rent"></span> Rent</span>
+              <span><span class="dot labor"></span> Labor</span>
+              <span><span class="dot marketing"></span> Marketing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagnostics Insights -->
+        <div class="diagnostics-container">
+          <span class="section-label">Why This Matters</span>
+          <div id="diagnostics-list" class="diagnostics-list">
+            <!-- List items dynamically generated -->
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Client-side Logic Script -->
+  <script>
+    let countriesData = [];
+    let activeCountry = { symbol: '₹', currency: 'INR', ppp: 0.33, code: 'IN' };
+
+    // Fetch locations from backend on load
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('/api/countries')
+        .then(res => res.json())
+        .then(data => {
+          countriesData = data;
+          const select = document.getElementById("targetCountry");
+          select.innerHTML = "";
+          
+          data.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.code;
+            opt.textContent = `${c.name} (${c.currency})`;
+            select.appendChild(opt);
+          });
+          
+          // Default selection to India (IN) or first element
+          const defaultC = data.find(c => c.code === 'IN') || data[0];
+          if (defaultC) {
+            select.value = defaultC.code;
+            updateCountryDetails(defaultC.code);
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Could not load country metrics from API server. Check if backend is running.");
+        });
+    });
+
+    // Update labels and values dynamically based on selected country
+    document.getElementById("targetCountry").addEventListener("change", (e) => {
+      updateCountryDetails(e.target.value);
+    });
+
+    function updateCountryDetails(code) {
+      const selected = countriesData.find(c => c.code === code);
+      if (selected) {
+        activeCountry = selected;
+        
+        // Update currency labels
+        document.getElementById("lbl-capital").textContent = `Starting Capital (${selected.currency} ${selected.symbol})`;
+        document.getElementById("lbl-marketing").textContent = `Monthly Marketing Budget (${selected.symbol})`;
+        document.getElementById("lbl-tx").textContent = `Average Transaction / Sale Value (${selected.symbol})`;
+        
+        // Populate default suggested values
+        const baseCapital = localParamsSuggested(document.getElementById("industry").value, selected.ppp);
+        document.getElementById("startingCapital").value = baseCapital;
+        document.getElementById("marketingBudget").value = Math.round(baseCapital * 0.03);
+        document.getElementById("avgTxValue").value = Math.round(50 * selected.ppp);
+      }
+    }
+
+    // Update suggestions when category changes
+    document.getElementById("industry").addEventListener("change", (e) => {
+      if (activeCountry) {
+        const baseCapital = localParamsSuggested(e.target.value, activeCountry.ppp);
+        document.getElementById("startingCapital").value = baseCapital;
+        document.getElementById("marketingBudget").value = Math.round(baseCapital * 0.03);
+      }
+    });
+
+    // Suggested capital baseline generator
+    function localParamsSuggested(ind, ppp) {
+      const baseCaps = {
+        "SaaS / Mobile Apps": 15000,
+        "Bakery / Cafe / Food": 80000,
+        "Boutique Retail / E-commerce": 50000,
+        "Local Services (Salon, Gym, Repairs)": 25000,
+        "E-Learning / Online Academy": 8000,
+        "Agrotech / Vertical Farming": 120000,
+        "Real Estate / Property Management": 60000,
+        "Healthcare Clinic / Wellness Care": 100000,
+        "Logistics / Delivery Service": 90000
+      };
+      return Math.round((baseCaps[ind] || 40000) * ppp);
+    }
+
+    // Intercept form submission and call FastAPI /api/predict
+    document.getElementById("feasibility-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const placeholder = document.getElementById("preview-placeholder");
+      const loading = document.getElementById("preview-loading");
+      const results = document.getElementById("preview-results");
+
+      // Set Loading visual states
+      placeholder.classList.add("hidden");
+      loading.classList.remove("hidden");
+      results.classList.add("hidden");
+
+      const payload = {
+        industry: document.getElementById("industry").value,
+        business_model: document.getElementById("businessModel").value,
+        sales_channel: document.getElementById("salesChannel").value,
+        founder_experience: document.getElementById("founderExperience").value,
+        starting_capital: parseFloat(document.getElementById("startingCapital").value),
+        marketing_budget: parseFloat(document.getElementById("marketingBudget").value),
+        team_size: parseInt(document.getElementById("teamSize").value),
+        avg_tx_value: parseFloat(document.getElementById("avgTxValue").value),
+        country_code: document.getElementById("targetCountry").value
+      };
+
+      fetch('/api/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(res => {
+          if (!res.ok) throw new Error("Backend query failed.");
+          return res.json();
+        })
+        .then(data => {
+          // 1. Update Gauge Success Percentage
+          const survivalVal = data.survival_probability;
+          document.getElementById("txt-survival").textContent = `${survivalVal}%`;
+          
+          const fillCircle = document.getElementById("gauge-fill");
+          // Stroke dasharray parameter is 251.2 (2 * pi * r, r=40)
+          const offset = 251.2 - (251.2 * survivalVal) / 100;
+          fillCircle.style.strokeDashoffset = offset;
+
+          // Color parameters based on survival risk profile
+          const statusText = document.getElementById("txt-potential");
+          if (survivalVal >= 70) {
+            statusText.textContent = "High Potential";
+            statusText.style.color = "#10b981";
+            fillCircle.style.stroke = "#10b981";
+          } else if (survivalVal >= 40) {
+            statusText.textContent = "Moderate Risk";
+            statusText.style.color = "#f59e0b";
+            fillCircle.style.stroke = "#f59e0b";
+          } else {
+            statusText.textContent = "High Failure Risk";
+            statusText.style.color = "#ef4444";
+            fillCircle.style.stroke = "#ef4444";
+          }
+
+          // 2. Expected Net Profit Metric
+          const profitVal = data.expected_annual_profit;
+          const txtProfit = document.getElementById("txt-profit");
+          const profitCard = document.getElementById("profit-card");
+          
+          const sign = profitVal >= 0 ? "+" : "";
+          txtProfit.textContent = `${sign}${activeCountry.symbol}${profitVal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+          document.getElementById("txt-currency-tag").textContent = `Currency: ${activeCountry.currency}`;
+
+          if (profitVal >= 0) {
+            txtProfit.style.color = "#34d399";
+            profitCard.style.borderColor = "rgba(16, 185, 129, 0.25)";
+            profitCard.style.background = "rgba(16, 185, 129, 0.04)";
+          } else {
+            txtProfit.style.color = "#f87171";
+            profitCard.style.borderColor = "rgba(239, 68, 68, 0.25)";
+            profitCard.style.background = "rgba(239, 68, 68, 0.04)";
+          }
+
+          // 3. Update Detailed Cost Outlays
+          const breakdown = data.breakdown;
+          const totalCost = breakdown.rent_annual + breakdown.labor_annual + breakdown.marketing_annual;
+          
+          document.getElementById("txt-rent").textContent = `${activeCountry.symbol}${breakdown.rent_annual.toLocaleString()}`;
+          document.getElementById("txt-labor").textContent = `${activeCountry.symbol}${breakdown.labor_annual.toLocaleString()}`;
+          document.getElementById("txt-marketing").textContent = `${activeCountry.symbol}${breakdown.marketing_annual.toLocaleString()}`;
+          document.getElementById("txt-total-cost").textContent = `${activeCountry.symbol}${totalCost.toLocaleString()}`;
+
+          // Scale cost progress bar slices
+          if (totalCost > 0) {
+            document.getElementById("bar-rent").style.width = `${(breakdown.rent_annual / totalCost) * 100}%`;
+            document.getElementById("bar-labor").style.width = `${(breakdown.labor_annual / totalCost) * 100}%`;
+            document.getElementById("bar-marketing").style.width = `${(breakdown.marketing_annual / totalCost) * 100}%`;
+          }
+
+          // 4. Update Diagnostics Cards
+          const diagList = document.getElementById("diagnostics-list");
+          diagList.innerHTML = "";
+          
+          if (data.diagnostics.length > 0) {
+            data.diagnostics.forEach(diag => {
+              const diagCard = document.createElement("div");
+              diagCard.className = `diag-item-card ${survivalVal < 50 ? 'warning' : 'success'}`;
+              
+              const bullet = document.createElement("span");
+              bullet.className = "bullet-dot";
+              bullet.textContent = survivalVal < 50 ? "🚨" : "✨";
+              
+              const p = document.createElement("p");
+              p.textContent = diag;
+              
+              diagCard.appendChild(bullet);
+              diagCard.appendChild(p);
+              diagList.appendChild(diagCard);
+            });
+          } else {
+            // Default success card
+            const diagCard = document.createElement("div");
+            diagCard.className = "diag-item-card success";
+            diagCard.innerHTML = `<span class="bullet-dot">✨</span><p>Your business parameters align with standard viable models in this location.</p>`;
+            diagList.appendChild(diagCard);
+          }
+
+          // Set active view
+          loading.classList.add("hidden");
+          results.classList.remove("hidden");
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Feasibility check calculation failed. Is the backend server running?");
+          loading.classList.add("hidden");
+          placeholder.classList.remove("hidden");
+        });
+    });
+  </script>
+</body>
+</html>
