@@ -21,7 +21,7 @@ app = FastAPI(title="Global Business Feasibility API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Adjust for production deployment
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
