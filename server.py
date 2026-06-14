@@ -1,9 +1,18 @@
 import os
+import sys
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+# Paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_DIR)
+
+MACRO_DATA_PATH = os.path.join(BASE_DIR, "macro_data.csv")
+CLASSIFIER_PATH = os.path.join(BASE_DIR, "survival_model.pkl")
+REGRESSOR_PATH = os.path.join(BASE_DIR, "profit_model.pkl")
 
 # Initialize FastAPI App
 app = FastAPI(title="Global Business Feasibility API", version="1.0.0")
@@ -17,23 +26,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MACRO_DATA_PATH = os.path.join(BASE_DIR, "macro_data.csv")
-CLASSIFIER_PATH = os.path.join(BASE_DIR, "survival_model.pkl")
-REGRESSOR_PATH = os.path.join(BASE_DIR, "profit_model.pkl")
-
 # Load Macroeconomic Database
 if not os.path.exists(MACRO_DATA_PATH):
     raise FileNotFoundError("Missing macro_data.csv")
 macro_df = pd.read_csv(MACRO_DATA_PATH)
 
-# Load Trained ML Models
+# Load Trained ML Models safely
+classifier, regressor = None, None
 if os.path.exists(CLASSIFIER_PATH) and os.path.exists(REGRESSOR_PATH):
-    classifier = joblib.load(CLASSIFIER_PATH)
-    regressor = joblib.load(REGRESSOR_PATH)
+    try:
+        classifier = joblib.load(CLASSIFIER_PATH)
+        regressor = joblib.load(REGRESSOR_PATH)
+        print("ML models loaded successfully.")
+    except Exception as e:
+        print(f"CRITICAL ERROR loading ML models: {e}")
 else:
-    classifier, regressor = None, None
     print("WARNING: ML Models not found. Run train_model.py first.")
 
 # Baseline capital requirements per industry (USD)
