@@ -31,9 +31,8 @@ export default function App() {
   const [teamSize, setTeamSize] = useState(2);
   const [avgTxValue, setAvgTxValue] = useState(50);
 
-  // Load countries from FastAPI backend
   useEffect(() => {
-    fetch('http://localhost:8000/api/countries')
+    fetch('https://business-feasibility-predictor.onrender.com/api/countries')
       .then((res) => {
         if (!res.ok) throw new Error('API server is offline');
         return res.json();
@@ -89,7 +88,7 @@ export default function App() {
       country_code: countryCode
     };
 
-    fetch('http://localhost:8000/api/predict', {
+    fetch('https://business-feasibility-predictor.onrender.com/api/predict', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
