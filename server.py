@@ -67,6 +67,10 @@ class PredictionRequest(BaseModel):
     avg_tx_value: float
     country_code: str
 
+@app.get("/")
+def read_root():
+    return {"status": "healthy", "service": "ScalePredict AI API Backend", "version": "1.0.0"}
+
 @app.get("/api/countries")
 def get_countries():
     """Returns supported countries and their macroeconomic indicators."""
